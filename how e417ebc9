@@ -1,0 +1,137 @@
+[33m9edc9aad[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;31morigin/11.x[m[33m)[m Update CHANGELOG
+[33me417ebc9[m[33m ([m[1;33mtag: [m[1;33mv11.6.1[m[33m)[m Remove extra hourly() method in console.php (#6525)
+[33m4760fcd6[m Sync `session.lifetime` configuration (#6522)
+[33mc452e15d[m Update vite dependencies (#6521)
+[33m3dd0323e[m Update CHANGELOG
+[33m91b40964[m[33m ([m[1;33mtag: [m[1;33mv11.6.0[m[33m)[m update filesystem config
+[33mf15301d1[m Preserve X-Xsrf-Token header from .htaccess (#6520)
+[33md4e9385f[m Update CHANGELOG
+[33mf9bedb32[m[33m ([m[1;33mtag: [m[1;33mv11.5.1[m[33m)[m Fix tailwindclass (#6518)
+[33mcb7ab617[m fix css whitespace invalid-calc (#6517)
+[33m658a49a1[m Adding PHP 8.4 to the tests matrix (#6516)
+[33mf08e4f8b[m Update .gitignore to not ignore auth.json lan file. (#6515)
+[33m657070ea[m Update CHANGELOG
+[33meb8085cf[m[33m ([m[1;33mtag: [m[1;33mv11.5.0[m[33m)[m [11.x] Update `config/mail.php` with supported configuration (#6506)
+[33ma39cb7cf[m Update CHANGELOG
+[33m0993d09d[m[33m ([m[1;33mtag: [m[1;33mv11.4.0[m[33m)[m Upgrade to Vite 6 (#6498)
+[33m8b67958f[m Narrow down array types (#6497)
+[33m980ef58f[m Update CHANGELOG
+[33m2eacb3d0[m[33m ([m[1;33mtag: [m[1;33mv11.3.3[m[33m)[m wip
+[33m3b146114[m match `HidesAttributes` docblocks (#6495)
+[33m3622d746[m Update composer.json (#6490)
+[33mbc03c8d7[m Update .gitignore (#6486)
+[33m70f437b6[m Add $schema property to composer.json (#6484)
+[33m2e6ac2c9[m Inconsistency in Github action names (#6478)
+[33m61fec7b8[m Update CHANGELOG
+[33m82a83a69[m[33m ([m[1;33mtag: [m[1;33mv11.3.2[m[33m)[m Fixes pail timing out after an hour (#6473)
+[33m1c880c36[m Update CHANGELOG
+[33mf9f5e3c3[m[33m ([m[1;33mtag: [m[1;33mv11.3.1[m[33m)[m wip
+[33mea60b55f[m Update CHANGELOG
+[33m6c3d2fb4[m[33m ([m[1;33mtag: [m[1;33mv11.3.0[m[33m)[m adjust colors
+[33m2f17c976[m remove retries
+[33m0973f0a3[m add restart tries
+[33mb378ce94[m Add Tailwind, "composer run dev" (#6463)
+[33ma61a6361[m Update CHANGELOG
+[33m49bceac4[m[33m ([m[1;33mtag: [m[1;33mv11.2.1[m[33m)[m Update welcome.blade.php to add missing alt tag (#6462)
+[33mc9c8fb9e[m Refactor User model to use HasFactory trait and add type hint for UserFactory (#6453)
+[33m6e71b994[m Update composer.json (#6454)
+[33me0421a4e[m Update CHANGELOG
+[33mbab16982[m[33m ([m[1;33mtag: [m[1;33mv11.2.0[m[33m)[m private files (#6450)
+[33m168e6859[m Update .gitignore with Zed Editor (#6449)
+[33mf0a12c66[m Update CHANGELOG
+[33mc12fd185[m[33m ([m[1;33mtag: [m[1;33mv11.1.5[m[33m)[m Update package.json (#6440)
+[33m6ebd9fed[m Update CHANGELOG
+[33m2897a49c[m[33m ([m[1;33mtag: [m[1;33mv11.1.4[m[33m)[m add sqlite options
+[33m4ef5e2f8[m Update CHANGELOG
+[33m69917ece[m[33m ([m[1;33mtag: [m[1;33mv11.1.3[m[33m)[m [11.x] Comment maintenance store (#6429)
+[33m3b239422[m Update CHANGELOG
+[33m47fb90a8[m[33m ([m[1;33mtag: [m[1;33mv11.1.2[m[33m)[m Apply fixes from StyleCI
+[33m3fd8dd85[m Expose lock table name (#6423)
+[33m3b3f9f13[m Update CHANGELOG
+[33mad38e564[m[33m ([m[1;33mtag: [m[1;33mv11.1.1[m[33m)[m Format the first letter of `drivers` to lowercase (#6413)
+[33mb6d55576[m Update CHANGELOG
+[33m5d86ab4b[m[33m ([m[1;33mtag: [m[1;33mv11.1.0[m[33m)[m Removes `spatie/laravel-ignition` (#6406)
+[33m76510a70[m Update CHANGELOG
+[33mb651fb10[m[33m ([m[1;33mtag: [m[1;33mv11.0.9[m[33m)[m updated mail config (#6402)
+[33m564e0438[m Update CHANGELOG
+[33m043a454a[m[33m ([m[1;33mtag: [m[1;33mv11.0.8[m[33m)[m Add .phpactor.json to .gitignore (#6400)
+[33mb3df041d[m Update CHANGELOG
+[33m4b158871[m[33m ([m[1;33mtag: [m[1;33mv11.0.7[m[33m)[m add resend
+[33me7cc5778[m resend
+[33mcf0b40b8[m Remove obsolete driver option (#6395)
+[33m0259455a[m Update CHANGELOG
+[33m3cb22426[m[33m ([m[1;33mtag: [m[1;33mv11.0.6[m[33m)[m Add missing roundrobin transport driver config (#6392)
+[33m708fdb1a[m Fix PHPUnit constraint (#6389)
+[33m9e2d6f64[m Update CHANGELOG
+[33m58baff2c[m[33m ([m[1;33mtag: [m[1;33mv11.0.5[m[33m)[m [11.x] Use PHPUnit v11 (#6385)
+[33m93f660c1[m Update CHANGELOG
+[33m441845d8[m[33m ([m[1;33mtag: [m[1;33mv11.0.4[m[33m)[m [11.x] Fix on hover animation and ring (#6376)
+[33m6f5d9b88[m Fix retry_after to be an integer (#6377)
+[33meb8f9dc2[m [11.x] Removed useless null parameter for env helper (#6373)
+[33m51c4166b[m [11.x] Removed useless null parameter for env helper (cache.php) (#6374)
+[33ma6ce688a[m Update CHANGELOG
+[33m087543a4[m[33m ([m[1;33mtag: [m[1;33mv11.0.3[m[33m)[m Revert collation change (#6372)
+[33m881f890b[m Update CHANGELOG
+[33m075c38c9[m[33m ([m[1;33mtag: [m[1;33mv11.0.2[m[33m)[m Update CHANGELOG
+[33m79969c99[m change mariadb default
+[33mdd0bf5c5[m Update welcome.blade.php (#6363)
+[33me7aa6346[m Remove branch alias from composer.json (#6366)
+[33m6ea57d76[m[33m ([m[1;33mtag: [m[1;33mv11.0.1[m[33m)[m [11.x] Fixes SQLite driver missing (#6361)
+[33mc1fc3a0e[m[33m ([m[1;33mtag: [m[1;33mv11.0.0[m[33m)[m Adjusts minimum stability
+[33mec8b7403[m Prepare 11.x branch
+[33me2875232[m Add Laravel Herd (#6356)
+[33m512e8664[m Merge branch '10.x'
+[33m1ee78493[m Add DB_CHARSET + DB_COLLATION (#6355)
+[33mdd677709[m Removes notes
+[33m90a0a16e[m Recompile styles (#6354)
+[33mf76b09d2[m Implement L11 welcome page design (#6335)
+[33m9ec283d2[m Uses `env` on postmark email commented code as docs (#6350)
+[33mf12dd8de[m Removes broadcasting (#6351)
+[33mf437205a[m slim configuration
+[33m96508d43[m wip
+[33m27907e01[m update env example file
+[33m8172528d[m use empty cache prefix in env example
+[33m151eac5c[m remove comments
+[33mbf1c2b7a[m [11.x] Adds Reverb config (#6341)
+[33md2b3ab24[m Moves `withProviders` to configure internally (#6340)
+[33m65cfa718[m Update CHANGELOG
+[33m059f45ab[m Merge branch '10.x'
+[33md3287461[m[33m ([m[1;33mtag: [m[1;33mv10.3.3[m[33m)[m wip
+[33mdc4e89b6[m add bcrypt rounds to env example file
+[33m20261731[m Update README.md
+[33m7df47a26[m simple health route
+[33m86c7c863[m slim bootstrap file
+[33me1d396c6[m add note to provider file
+[33mcde09e63[m [11.x] Adjusts default mail environment variables (#6325)
+[33ma186ebf4[m wip
+[33m1f7e8807[m Requires Guzzle on `laravel/framework` (#6324)
+[33m29542470[m Fixes `APP_MAINTENANCE_DRIVER` value for testing
+[33m3898059e[m explicit directory
+[33m5955d2e4[m revert quietness
+[33m27a4111f[m run database migrations quietly on create project
+[33me23c0c1b[m SQLite for local dev (#6322)
+[33mb1502f3c[m slim comments
+[33m1ad4708d[m Merge branch '10.x'
+[33mdd60315e[m [11.x] Simplify PHP comments (#6316)
+[33m6292958a[m [11.x] Removed unused using in public/index.php (#6315)
+[33mb726807a[m Uses Tinker's stable branch
+[33m2254e8e3[m Update CHANGELOG
+[33mf3b9740d[m Move spatie/laravel-ignition to dev dependencies
+[33m1a4d1dc8[m[33m ([m[1;33mtag: [m[1;33mv10.3.2[m[33m)[m Update Axios to latest version (#6313)
+[33m14bc24d2[m Adds Laravel Ignition (#6312)
+[33m2529041f[m Merge branch '10.x'
+[33m13a81bf9[m Removes `CreatesApplication` (#6310)
+[33m1674895c[m [11.x] Bumps versions on `composer.json` (#6311)
+[33m6f6cfb02[m Update Axios to latest version (#6306)
+[33mb191f9d0[m Merge branch '10.x'
+[33m0c8372a2[m Reverts `assertOk` change (#6303)
+[33m705f97c5[m Update CHANGELOG
+[33m9e3fbaa5[m Uses `CACHE_STORE` instead of `CACHE_DRIVER` (#6302)
+[33m890835b7[m[33m ([m[1;33mtag: [m[1;33mv10.3.1[m[33m)[m [10.x] Add roundrobin transport driver config (#6301)
+[33m07fdfbc8[m Update CHANGELOG
+[33m647c9bc2[m[33m ([m[1;33mtag: [m[1;33mv10.3.0[m[33m)[m Update version requirement (#6292)
+[33m5d93ebdb[m Revert "Fixes tests failing due database not available (#6297)" (#6299)
+[33m0071cc80[m update drivers
+[33me15fbbe5[m Fixes tests failing due database not available (#6297)
+[33m39532486[m wip
+[33m3f1426a5[m Revert "Rename migration tables 
