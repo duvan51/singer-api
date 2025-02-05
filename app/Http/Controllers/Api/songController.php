@@ -7,7 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Song;
 
-class SongController extends Controller // Cambiado a PascalCase
+class songController extends Controller // Cambiado a PascalCase
 {
     public function index(){
         $songs = Song::all();
