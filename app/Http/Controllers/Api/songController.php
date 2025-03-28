@@ -10,7 +10,8 @@ use App\Models\Song;
 class songController extends Controller // Cambiado a PascalCase
 {
     public function index(){
-        $songs = Song::all();
+        $songs = Song::with('categories')->get();
+
         if($songs->isEmpty()){
             $data = [
                 'message' => 'No se encontraron canciones',
@@ -22,7 +23,10 @@ class songController extends Controller // Cambiado a PascalCase
     }
 
     public function show($id){
-        $song = Song::find($id);
+        $song = Song::with('categories')->find($id);
+
+
+
         if(!$song){
             $data = [
                 'message' => 'Canción no encontrada',
@@ -64,5 +68,73 @@ class songController extends Controller // Cambiado a PascalCase
             'status' => 201
         ];
         return response()->json($data, 201);
+    }
+
+
+    public function update(Request $request, $id){
+        
+        $song = Song::find($id);
+        
+        error_log("ID recibido: " . json_encode($id));
+
+        if(!$song){
+            $data=[
+                'message' => 'Song no encontrada',
+                'status' => 404
+            ];
+            return  response()->json($data, 404);
+        }
+        $request->validate([
+            'song' => 'nullable|array',
+            'categories' => 'nullable|array',
+        ]);
+
+         // Actualizar solo `song` sin convertirlo manualmente
+        if ($request->has('song')) {
+            $song->update([
+            'song' => $request->input('song'),
+        ]);
+        }
+         // Actualizar las categorías asociadas si vienen en la petición
+        if ($request->has('categories')) {
+            $song->categories()->sync($request->input('categories'));
+        }
+
+        return response()->json([
+            'message' => 'Canción actualizada con éxito',
+            'song' => $song->fresh()->load('categories') // devuelve la canción actualizada con categorías
+        ], 200);
+
+    }
+
+    public function destroy($id){
+        $song = Song::find($id);
+        if(!$song){
+            return response()->json(['message' => 'Song no encontrada'], 404);
+        }
+        $song->delete();
+
+        return response()->json(['message' => 'Canción eliminada con éxito -> ', $song], 200);
+    }
+
+
+
+    public function search(Request $request){
+        $query = $request->input('query');
+
+        //verifico que no este vacio el la peticions
+
+        if(!$query){
+            return response()->json([]);
+        }
+
+        //buscar canciones que coincidan
+        $songs = Song::with('categories')
+        ->where('name', 'LIKE', "%{$query}%")
+        ->orWhere('autor', 'LIKE', "%{$query}%") // Opcional: busca por artista también
+        ->limit(5) // Opcional: limita la cantidad de resultados
+        ->get();
+
+        return response()->json($songs);
     }
 }
