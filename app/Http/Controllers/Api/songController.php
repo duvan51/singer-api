@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Song;
+use App\Models\Category;
 
 class songController extends Controller // Cambiado a PascalCase
 {
