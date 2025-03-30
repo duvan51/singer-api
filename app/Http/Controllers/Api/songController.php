@@ -120,28 +120,27 @@ class songController extends Controller // Cambiado a PascalCase
 
 
 
-    public function search(Request $request)
-{
-    $query = $request->input('query');
-
-    // Verifico que la petición no esté vacía
-    if (!$query) {
-        return response()->json([]);
+    public function search(Request $request){
+        $query = $request->input('query');
+    
+        // Verifico que la petición no esté vacía
+        if (!$query) {
+            return response()->json([]);
+        }
+    
+        // Buscar categorías que coincidan con el nombre ingresado
+        $categories = Category::where('name', 'LIKE', "%{$query}%")->pluck('id');
+    
+        // Buscar canciones que coincidan con la búsqueda en nombre, autor o categorías
+        $songs = Song::with('categories')
+            ->where('name', 'LIKE', "%{$query}%")
+            ->orWhere('autor', 'LIKE', "%{$query}%")
+            ->orWhereHas('categories', function ($q) use ($categories) {
+                $q->whereIn('category_id', $categories);
+            })
+            ->limit(10) // Opcional: limitar resultados
+            ->get();
+    
+        return response()->json($songs);
     }
-
-    // Buscar categorías que coincidan con el nombre ingresado
-    $categories = Category::where('name', 'LIKE', "%{$query}%")->pluck('id');
-
-    // Buscar canciones que pertenecen a esas categorías o que coincidan por nombre/autor
-    $songs = Song::with('categories')
-        ->where('name', 'LIKE', "%{$query}%")
-        ->orWhere('autor', 'LIKE', "%{$query}%")
-        ->orWhereHas('categories', function ($q) use ($categories) {
-            $q->whereIn('id', $categories);
-        })
-        ->limit(10) // Opcional: limitar resultados
-        ->get();
-
-    return response()->json($songs);
-}
 }
