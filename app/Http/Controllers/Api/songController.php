@@ -119,22 +119,28 @@ class songController extends Controller // Cambiado a PascalCase
 
 
 
-    public function search(Request $request){
-        $query = $request->input('query');
+    public function search(Request $request)
+{
+    $query = $request->input('query');
 
-        //verifico que no este vacio el la peticions
+    // Verifico que la petición no esté vacía
+    if (!$query) {
+        return response()->json([]);
+    }
 
-        if(!$query){
-            return response()->json([]);
-        }
+    // Buscar categorías que coincidan con el nombre ingresado
+    $categories = Category::where('name', 'LIKE', "%{$query}%")->pluck('id');
 
-        //buscar canciones que coincidan
-        $songs = Song::with('categories')
+    // Buscar canciones que pertenecen a esas categorías o que coincidan por nombre/autor
+    $songs = Song::with('categories')
         ->where('name', 'LIKE', "%{$query}%")
-        ->orWhere('autor', 'LIKE', "%{$query}%") // Opcional: busca por artista también
-        ->limit(5) // Opcional: limita la cantidad de resultados
+        ->orWhere('autor', 'LIKE', "%{$query}%")
+        ->orWhereHas('categories', function ($q) use ($categories) {
+            $q->whereIn('id', $categories);
+        })
+        ->limit(10) // Opcional: limitar resultados
         ->get();
 
-        return response()->json($songs);
-    }
+    return response()->json($songs);
+}
 }

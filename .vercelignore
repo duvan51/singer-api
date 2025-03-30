@@ -1,0 +1,33 @@
+# Directorios innecesarios
+node_modules
+vendor
+storage
+public/storage
+public/hot
+public/mix-manifest.json
+
+# Archivos de configuración y entorno
+.env
+.env.local
+.env.development
+.env.production
+.env.testing
+.phpunit.result.cache
+
+# Archivos y carpetas generadas por Laravel
+bootstrap/cache/*
+storage/framework/*
+storage/logs/*
+storage/debugbar/*
+storage/app/public/*
+storage/oauth-public.key
+storage/oauth-private.key
+
+# Archivos ocultos del sistema
+.DS_Store
+Thumbs.db
+
+# Carpetas de control de versiones
+.git
+.idea
+.vscode
