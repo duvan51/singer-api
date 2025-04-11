@@ -34,8 +34,7 @@ class categoryController extends Controller // Cambiado a PascalCase
         return response()->json($categories, 200);
     }
 
-    public function store(Request $request)
-{
+    public function store(Request $request){
     $validator = Validator::make($request->all(), [
         'name' => 'required|string',
         'image_url' => 'required|string|url', // Ahora solo recibe una URL como string

@@ -18,9 +18,14 @@ class Song extends Model
         'song' => 'array', // Cast 'song' como un array
     ];
 
-    public function categories(): BelongsToMany
-    {
+    public function categories(): BelongsToMany{
         return $this->belongsToMany(Category::class, 'category_song');
     }
 
+    public function favoritedByUsers() {
+        return $this->belongsToMany(User::class, 'favorites', 'song_id', 'user_id');
+    }
+
 }
+
+
