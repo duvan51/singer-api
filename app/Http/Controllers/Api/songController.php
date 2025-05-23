@@ -10,6 +10,7 @@ use App\Models\Category;
 
 
 class songController extends Controller // Cambiado a PascalCase
+
 {
     public function index(){
         $songs = Song::with('categories')->get();
@@ -26,8 +27,6 @@ class songController extends Controller // Cambiado a PascalCase
 
     public function show($id){
         $song = Song::with('categories')->find($id);
-
-
 
         if(!$song){
             $data = [

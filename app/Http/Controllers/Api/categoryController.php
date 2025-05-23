@@ -22,6 +22,10 @@ class categoryController extends Controller // Cambiado a PascalCase
         return response()->json($categories, 200);
     }
 
+
+
+
+    
     public function show($id){
         $categories = Category::find($id);
         if(!$categories){
@@ -33,6 +37,9 @@ class categoryController extends Controller // Cambiado a PascalCase
         }
         return response()->json($categories, 200);
     }
+
+
+
 
     public function store(Request $request){
     $validator = Validator::make($request->all(), [
@@ -74,35 +81,44 @@ class categoryController extends Controller // Cambiado a PascalCase
 
     
     public function update(Request $request, $id){
-        
-        $song = Category::find($id);
-        
-        error_log("ID recibido: " . json_encode($id));
+    $category = Category::find($id);
 
-        if(!$song){
-            $data=[
-                'message' => 'Song no encontrada',
-                'status' => 404
-            ];
-            return  response()->json($data, 404);
-        }
-        $request->validate([
-            'song' => 'nullable|array',
-        ]);
-
-         // Actualizar solo `song` sin convertirlo manualmente
-        if ($request->has('song')) {
-            $song->update([
-            'song' => $request->input('song'),
-        ]);
-        }
-
+    if (!$category) {
         return response()->json([
-            'message' => 'Canción actualizada con éxito',
-            'song' => $song->song // Laravel ya lo devolverá como array
-        ],200);
-
+            'message' => 'Categoría no encontrada',
+            'status' => 404
+        ], 404);
     }
+
+    $request->validate([
+        'name' => 'nullable|string',
+        'image_url' => 'nullable|string'
+    ]);
+
+    if (!$request->filled('name') && !$request->filled('image_url')) {
+        return response()->json([
+            'message' => 'Debes enviar al menos "name" o "image_url" para actualizar.',
+            'status' => 400
+        ], 400);
+    }
+
+    $data=[];
+    if($request->filled('name')){
+        $data['name'] = $request->input('name');
+    }
+    if($request->filled('image_url')){
+        $data['image_url'] = $request->input('image_url');
+    }
+
+    $category->update($data);
+
+    return response()->json([
+        'message' => 'Categoría actualizada con éxito',
+        'category' => $category
+    ], 200);
+    
+    }
+
 
     public function destroy($id){
         $song = Category::find($id);

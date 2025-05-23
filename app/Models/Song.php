@@ -26,6 +26,15 @@ class Song extends Model
         return $this->belongsToMany(User::class, 'favorites', 'song_id', 'user_id');
     }
 
+    public function repertorios(){
+        return $this->belongsToMany(Repertorios::class, 'repertorio_song');
+    }
+
+    public function customCopies(){
+    return $this->hasMany(CustomSong::class, 'original_song_id');
+    }
+
+
 }
 
 

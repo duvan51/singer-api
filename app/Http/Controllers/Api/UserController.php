@@ -14,6 +14,7 @@ class UserController extends Controller
 {
     
     public function store(Request $request) {
+
         $validator = Validator::make( $request->all(), [
             'name'=> 'required|string|max:255',
             'email'=> 'required|email|unique:users',
@@ -59,6 +60,8 @@ class UserController extends Controller
             ];
             return response()->json($data, 404);
         }
+        $user->load('favoriteSongs');
+        $user->load('groups.repertorios');
         return response()->json($user, 200);
     }
     
@@ -74,6 +77,7 @@ class UserController extends Controller
             ];
             return response()->json($data, 404);
         }
+        $users->load('favoriteSongs');
         return response()->json($users, 200);
     }
 
@@ -82,6 +86,7 @@ class UserController extends Controller
 
 
     public function login(Request $request){
+       
         $user = User::where('email', $request->email)->first();
         if (!$user) {
             return response()->json(['message' => 'Usuario no encontrado'], 404);
@@ -112,3 +117,6 @@ class UserController extends Controller
     
 
 }
+
+
+

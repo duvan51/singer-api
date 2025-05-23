@@ -9,6 +9,10 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Laravel\Sanctum\HasApiTokens;
 
+/**
+ * @property \Illuminate\Database\Eloquent\Collection|\App\Models\Song[] $favoriteSongs
+*/
+
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
@@ -63,8 +67,18 @@ class User extends Authenticatable
         return $this->belongsToMany(Song::class, 'favorites', 'user_id', 'song_id');
     }
 
+    public function groups(){
+        return $this->belongsToMany(Group::class);
+    }
+    
+    public function createdGroups(){
+            return $this->hasMany(Group::class, 'user_id');
+    }
 
-
+    public function comentarios(){
+        return $this->hasMany(Comentarios::class);
+    }
 
     
 }
+
